@@ -1,2 +1,3 @@
-# Grafos_Componentes_Conexas
-Trabalho 1 - Algoritmos em Grafos
+# Grafos Componentes Conexas
+CK0111 - Algoritmo em Grafos.<br>
+Trabalho 1 - Componentes Conexas.<br>
