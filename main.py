@@ -1,40 +1,41 @@
+def DFS(ListaADJ, vertice, Visitados, Componentes):# Funcao de DFS
+  Visitados.add(vertice)  # Adiciona o vertice na lista de visitados
+  Componentes.add(vertice) # Adiciona o vertice na lista de componentes
+  for N in ListaADJ[vertice]: # Para cada vizinho do vertice
+    if N not in Visitados: 
+      DFS(ListaADJ, N, Visitados, Componentes) 
 
-def DFS(ListaADJ, vertice, Visitados, Componentes):
-  Visitados.add(vertice)
-  Componentes.add(vertice)
-  for N in ListaADJ[vertice]:
-    if N not in Visitados:
-      DFS(ListaADJ, N, Visitados, Componentes)
 
-
-def ProcurarConexas(ListaADJ):
-    VerticesVisitados = set()
-    Compenentes = []
+def ProcurarConexas(ListaADJ): # Funcao que procura as componentes conexas
+    VerticesVisitados = set()  # percorrera a lista e vera quem tem conexões
+    Compenentes = []           # adicionando numa lista de componentes 
     for Vertice in ListaADJ:
         if Vertice not in VerticesVisitados:
             component = set()
-            DFS(ListaADJ, Vertice, VerticesVisitados, component)
+            DFS(ListaADJ, Vertice, VerticesVisitados, component)  # chama a funcao de DFS
             Compenentes.append(component)
-    return Compenentes
+    return Compenentes  # retorna a lista de componentes
 
 trash = input()  # trash: variavel descartavel
-trash = input()
-trash, NumIndices = input().split("n=")
+trash = input()  # ira pegar 1,2 e 4 linha junto ao "n=10"
+trash, NumIndices = input().split("n=") #Pegar o numero de indices
 NumIndices = int(NumIndices)
 trash = input()
 
-status = True
-ListaADJ = {}
+ListaADJ = {} # criando Lista de adjacencia
 for aux in range(1, NumIndices+1):
   ListaADJ[aux] = [aux]
 
-while status: #Pegar os valores de entrada
-  try:
+
+status = True
+while status: # Pegar os valores de entrada
+  try:        # das arestas, e lista-os com quem tem conexões, resumindo: um grafo
     aux1, aux2 = input().split(" ")
     ListaADJ[int(aux1)].append(int(aux2))
     ListaADJ[int(aux2)].append(int(aux1))
   except EOFError:
     status = False
+
 
 saida = ProcurarConexas(ListaADJ)  
 
