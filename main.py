@@ -12,7 +12,7 @@ def procurarconexas(ListaADJ): # Funcao que procura as componentes conexas
     for Vertice in ListaADJ:
         if Vertice not in VerticesVisitados:
             component = set()
-            DFS(ListaADJ, Vertice, VerticesVisitados, component)  # chama a funcao de DFS
+            dfs(ListaADJ, Vertice, VerticesVisitados, component)  # chama a funcao de DFS
             Compenentes.append(component)
     return Compenentes  # retorna a lista de componentes
 
@@ -37,7 +37,7 @@ while status: # Pegar os valores de entrada
     status = False
 
 
-saida = ProcurarConexas(ListaADJ)  
+saida = procurarconexas(ListaADJ)  
 
 for aux in range(len(saida)): #SAIDA do programa
   print(" ".join(map(str, sorted(saida[aux]))))
