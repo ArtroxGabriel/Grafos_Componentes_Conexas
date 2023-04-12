@@ -1,4 +1,4 @@
-def DFS(ListaADJ, vertice, Visitados, Componentes):# Funcao de DFS
+def dfs(ListaADJ, vertice, Visitados, Componentes):# Funcao de DFS
   Visitados.add(vertice)  # Adiciona o vertice na lista de visitados
   Componentes.add(vertice) # Adiciona o vertice na lista de componentes
   for N in ListaADJ[vertice]: # Para cada vizinho do vertice
@@ -6,7 +6,7 @@ def DFS(ListaADJ, vertice, Visitados, Componentes):# Funcao de DFS
       DFS(ListaADJ, N, Visitados, Componentes) 
 
 
-def ProcurarConexas(ListaADJ): # Funcao que procura as componentes conexas
+def procurarconexas(ListaADJ): # Funcao que procura as componentes conexas
     VerticesVisitados = set()  # percorrera a lista e vera quem tem conexões
     Compenentes = []           # adicionando numa lista de componentes 
     for Vertice in ListaADJ:
